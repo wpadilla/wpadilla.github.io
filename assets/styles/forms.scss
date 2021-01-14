@@ -1,0 +1,56 @@
+@import "~src/assets/styles/colors.scss";
+
+// form control styles
+.form-control {
+  padding: 0 10px;
+  input {
+    border: 3px solid $primary;
+    box-shadow: 0 0 2px $primary-dark;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px;
+
+    &:active {
+      border: 3px solid $primary-dark;
+      box-shadow: 0 0 2px $primary-dark;
+      outline: unset;
+    }
+  }
+}
+
+.btn {
+  padding: 12px;
+  border-radius: 5px;
+  border: unset;
+  border-bottom: 5px solid $default-dark;
+  background-color: $default;
+  min-width: 100px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:active {
+    border-bottom: unset;
+    outline: unset;
+  }
+}
+
+.btn-primary {
+  border-color: $primary-dark;
+  background-color: $primary;
+  color: #fff;
+}
+
+.btn-danger {
+  border-color: $danger-dark;
+  background-color: $danger;
+  color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+  .form-control {
+    input {
+      max-width: 90vw;
+      font-size: 14px;
+    }
+  }
+}

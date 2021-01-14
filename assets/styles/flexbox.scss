@@ -1,0 +1,41 @@
+$aligning: (
+  '-sa': space-around,
+  '-sb': space-between,
+  '-se': space-evenly,
+  '-c': center,
+  '-fs': flex-start,
+  '-fe': flex-end
+);
+
+$display: (
+  '-flex': flex,
+  '-block': block,
+  '-inline-block': inline-block,
+  '-none': none
+);
+
+$direction: (
+  '-c': column,
+  '-cr': column-reverse,
+  '-r': row,
+  '-rr': row-reverse,
+);
+
+@mixin getFlexbox() {
+  $all: (
+    'justify-content': $aligning,
+    'align-items': $aligning,
+    'flex-direction': $direction,
+    'display': $display,
+  );
+
+  @each $key, $value in $all {
+    @each $k, $v in $value {
+      .#{$key + $k } {
+        #{$key}: #{$v};
+      }
+    }
+  }
+}
+
+@include getFlexbox();

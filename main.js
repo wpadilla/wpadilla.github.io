@@ -1605,12 +1605,12 @@ const topSlideAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0_
 const routerSlideInAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["trigger"])('routeAnimations', [
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])('* <=> HomePage', [
         Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({ position: 'relative' }),
-        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["query"])(':enter, :leave', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["query"])(':enter', [
             Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                width: '100%'
+                width: '100%',
             })
         ]),
         Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["query"])(':enter', [
@@ -1626,7 +1626,7 @@ const routerSlideInAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODU
             ])
         ]),
         Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["query"])(':enter', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animateChild"])()),
-    ]),
+    ])
 ]);
 
 

@@ -23,15 +23,12 @@ module.exports = __webpack_require__(/*! /Users/admin/Desktop/ns804/ns804-app/sr
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoListService", function() { return TodoListService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _token_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./token.service */ "rj1t");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 
 
 
-
-class TodoListService extends _token_service__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class TodoListService {
     constructor(http) {
-        super();
         this.http = http;
     }
     loadTodos() {
@@ -42,14 +39,14 @@ class TodoListService extends _token_service__WEBPACK_IMPORTED_MODULE_1__["defau
         });
     }
 }
-TodoListService.ɵfac = function TodoListService_Factory(t) { return new (t || TodoListService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+TodoListService.ɵfac = function TodoListService_Factory(t) { return new (t || TodoListService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
 TodoListService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: TodoListService, factory: TodoListService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TodoListService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -102,7 +99,7 @@ class RegisterComponent {
     }
     register() {
         this.startLoading = true;
-        const payload = { email: this.email.value, password: this.password.value };
+        const payload = { email: String(this.email.value).toLowerCase().replace(/[' ']/gi, ''), password: this.password.value };
         this.store.dispatch(new _store_actions_auth_actions__WEBPACK_IMPORTED_MODULE_2__["RegisterAction"](payload));
         this.email.disable();
         this.password.disable();
@@ -893,7 +890,7 @@ TodoListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.empty && !_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](5, 6, ctx.loading));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("@popIn", undefined);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_6__["TooltipDirective"], _loading_loading_component__WEBPACK_IMPORTED_MODULE_7__["LoadingComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["AsyncPipe"]], styles: [".container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100vh;\n}\n\n.todo-list-container[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 600px;\n  width: 100%;\n}\n\n.todo-list[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-y: scroll;\n  max-height: 400px;\n}\n\n.todo-list[_ngcontent-%COMP%]   .todo-item[_ngcontent-%COMP%] {\n  position: relative;\n  cursor: pointer;\n}\n\n.todo-list[_ngcontent-%COMP%]   .todo-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.5;\n}\n\n.underline[_ngcontent-%COMP%], .underline-left[_ngcontent-%COMP%], .underline-right[_ngcontent-%COMP%] {\n  width: 80%;\n  border-bottom: 1px solid #ccc;\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  margin-left: -40%;\n}\n\n.underline-right[_ngcontent-%COMP%] {\n  transform: rotate(90deg);\n  bottom: unset;\n  top: 50%;\n  left: unset;\n  width: 50%;\n  right: -25%;\n}\n\n.underline-left[_ngcontent-%COMP%] {\n  transform: rotate(90deg);\n  left: 15%;\n  bottom: unset;\n  top: 50%;\n  width: 50%;\n}\n\n.top-shadow[_ngcontent-%COMP%], .bottom-shadow[_ngcontent-%COMP%] {\n  max-width: 630px;\n  width: 100%;\n  position: relative;\n  top: 25px;\n  height: 0;\n  border-bottom: 60px solid #fff;\n  filter: blur(10px);\n  background: #fff;\n  opacity: 1.5;\n  z-index: 999;\n}\n\n.bottom-shadow[_ngcontent-%COMP%] {\n  bottom: 25px;\n  top: unset;\n}\n\n.go-to-create[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 40px;\n  right: 40px;\n  z-index: 1000;\n}\n\n.go-to-create[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  border-radius: 50%;\n  display: flex;\n  padding: 25px;\n  justify-content: center;\n  min-width: unset;\n  width: 100px;\n}\n\n.go-to-create[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 40px;\n}\n\n.todo-title[_ngcontent-%COMP%] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3RvZG8tbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLFdBQUE7RUFDQSxhQUFBO0FBREY7O0FBR0E7RUFDRSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtBQUFGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7QUFDRjs7QUFBRTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtBQUVKOztBQUFJO0VBQ0UsWUFBQTtBQUVOOztBQUdBO0VBQ0UsVUFBQTtFQUNBLDZCQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsU0FBQTtFQUNBLGlCQUFBO0FBQUY7O0FBR0E7RUFFRSx3QkFBQTtFQUdBLGFBQUE7RUFDQSxRQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0FBSEY7O0FBTUE7RUFFRSx3QkFBQTtFQUNBLFNBQUE7RUFDQSxhQUFBO0VBQ0EsUUFBQTtFQUNBLFVBQUE7QUFKRjs7QUFPQTtFQUNFLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7RUFDQSw4QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtBQUpGOztBQU9BO0VBRUUsWUFBQTtFQUNBLFVBQUE7QUFMRjs7QUFRQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0FBTEY7O0FBTUU7RUFDRSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFKSjs7QUFLSTtFQUNFLFdBQUE7QUFITjs7QUFRQTtFQUNFLHVCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxtQkFBQTtBQUxGIiwiZmlsZSI6InRvZG8tbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL2Fzc2V0cy9zdHlsZXMvY29sb3JzXCI7XG5cbi5jb250YWluZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDB2aDtcbn1cbi50b2RvLWxpc3QtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXgtd2lkdGg6IDYwMHB4O1xuICB3aWR0aDogMTAwJTtcbn1cbi50b2RvLWxpc3Qge1xuICB3aWR0aDogMTAwJTtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xuICBtYXgtaGVpZ2h0OiA0MDBweDtcbiAgLnRvZG8taXRlbSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcblxuICAgICY6aG92ZXIge1xuICAgICAgb3BhY2l0eTogLjU7XG4gICAgfVxuICB9XG59XG5cbi51bmRlcmxpbmUge1xuICB3aWR0aDogODAlO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgJGRlZmF1bHQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogNTAlO1xuICBib3R0b206IDA7XG4gIG1hcmdpbi1sZWZ0OiAtNDAlO1xufVxuXG4udW5kZXJsaW5lLXJpZ2h0e1xuICBAZXh0ZW5kIC51bmRlcmxpbmU7XG4gIHRyYW5zZm9ybTogcm90YXRlKFxuICAgICAgOTBkZWdcbiAgKTtcbiAgYm90dG9tOiB1bnNldDtcbiAgdG9wOiA1MCU7XG4gIGxlZnQ6IHVuc2V0O1xuICB3aWR0aDogNTAlO1xuICByaWdodDogLTI1JTtcbn1cblxuLnVuZGVybGluZS1sZWZ0IHtcbiAgQGV4dGVuZCAudW5kZXJsaW5lO1xuICB0cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIGxlZnQ6IDE1JTtcbiAgYm90dG9tOiB1bnNldDtcbiAgdG9wOiA1MCU7XG4gIHdpZHRoOiA1MCU7XG59XG5cbi50b3Atc2hhZG93IHtcbiAgbWF4LXdpZHRoOiA2MzBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAyNXB4O1xuICBoZWlnaHQ6IDA7XG4gIGJvcmRlci1ib3R0b206IDYwcHggc29saWQgI2ZmZjtcbiAgZmlsdGVyOiBibHVyKDEwcHgpO1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBvcGFjaXR5OiAxLjU7XG4gIHotaW5kZXg6IDk5OTtcbn1cblxuLmJvdHRvbS1zaGFkb3cge1xuICBAZXh0ZW5kIC50b3Atc2hhZG93O1xuICBib3R0b206IDI1cHg7XG4gIHRvcDogdW5zZXQ7XG59XG5cbi5nby10by1jcmVhdGUge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogNDBweDtcbiAgcmlnaHQ6IDQwcHg7XG4gIHotaW5kZXg6IDEwMDA7XG4gIGJ1dHRvbiB7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgcGFkZGluZzogMjVweDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBtaW4td2lkdGg6IHVuc2V0O1xuICAgIHdpZHRoOiAxMDBweDtcbiAgICBpbWcge1xuICAgICAgd2lkdGg6IDQwcHg7XG4gICAgfVxuICB9XG59XG5cbi50b2RvLXRpdGxlIHtcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG59XG4iXX0= */"], data: { animation: [
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_6__["TooltipDirective"], _loading_loading_component__WEBPACK_IMPORTED_MODULE_7__["LoadingComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["AsyncPipe"]], styles: [".container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100vh;\n}\n\n.todo-list-container[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 600px;\n  width: 100%;\n}\n\n.todo-list[_ngcontent-%COMP%] {\n  width: 100%;\n  overflow-y: scroll;\n  max-height: 400px;\n}\n\n.todo-list[_ngcontent-%COMP%]   .todo-item[_ngcontent-%COMP%] {\n  position: relative;\n  cursor: pointer;\n}\n\n.todo-list[_ngcontent-%COMP%]   .todo-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.5;\n}\n\n.underline[_ngcontent-%COMP%], .underline-left[_ngcontent-%COMP%], .underline-right[_ngcontent-%COMP%] {\n  width: 80%;\n  border-bottom: 1px solid #ccc;\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  margin-left: -40%;\n}\n\n.underline-right[_ngcontent-%COMP%] {\n  transform: rotate(90deg);\n  bottom: unset;\n  top: 50%;\n  left: unset;\n  width: 50%;\n  right: -25%;\n}\n\n.underline-left[_ngcontent-%COMP%] {\n  transform: rotate(90deg);\n  left: 15%;\n  bottom: unset;\n  top: 50%;\n  width: 50%;\n}\n\n.top-shadow[_ngcontent-%COMP%], .bottom-shadow[_ngcontent-%COMP%] {\n  max-width: 630px;\n  width: 100%;\n  position: relative;\n  top: 25px;\n  height: 0;\n  border-bottom: 60px solid #fff;\n  filter: blur(10px);\n  background: #fff;\n  opacity: 1.5;\n  z-index: 99;\n}\n\n.bottom-shadow[_ngcontent-%COMP%] {\n  bottom: 25px;\n  top: unset;\n}\n\n.go-to-create[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 40px;\n  right: 40px;\n  z-index: 1000;\n}\n\n.go-to-create[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  border-radius: 50%;\n  display: flex;\n  padding: 25px;\n  justify-content: center;\n  min-width: unset;\n  width: 100px;\n}\n\n.go-to-create[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 40px;\n}\n\n.todo-title[_ngcontent-%COMP%] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3RvZG8tbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLFdBQUE7RUFDQSxhQUFBO0FBREY7O0FBR0E7RUFDRSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtBQUFGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7QUFDRjs7QUFBRTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtBQUVKOztBQUFJO0VBQ0UsWUFBQTtBQUVOOztBQUdBO0VBQ0UsVUFBQTtFQUNBLDZCQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0VBQ0EsU0FBQTtFQUNBLGlCQUFBO0FBQUY7O0FBR0E7RUFFRSx3QkFBQTtFQUdBLGFBQUE7RUFDQSxRQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0FBSEY7O0FBTUE7RUFFRSx3QkFBQTtFQUNBLFNBQUE7RUFDQSxhQUFBO0VBQ0EsUUFBQTtFQUNBLFVBQUE7QUFKRjs7QUFPQTtFQUNFLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7RUFDQSw4QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtBQUpGOztBQU9BO0VBRUUsWUFBQTtFQUNBLFVBQUE7QUFMRjs7QUFRQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0FBTEY7O0FBTUU7RUFDRSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUFKSjs7QUFLSTtFQUNFLFdBQUE7QUFITjs7QUFRQTtFQUNFLHVCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxtQkFBQTtBQUxGIiwiZmlsZSI6InRvZG8tbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL2Fzc2V0cy9zdHlsZXMvY29sb3JzXCI7XG5cbi5jb250YWluZXIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDB2aDtcbn1cbi50b2RvLWxpc3QtY29udGFpbmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXgtd2lkdGg6IDYwMHB4O1xuICB3aWR0aDogMTAwJTtcbn1cbi50b2RvLWxpc3Qge1xuICB3aWR0aDogMTAwJTtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xuICBtYXgtaGVpZ2h0OiA0MDBweDtcbiAgLnRvZG8taXRlbSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcblxuICAgICY6aG92ZXIge1xuICAgICAgb3BhY2l0eTogLjU7XG4gICAgfVxuICB9XG59XG5cbi51bmRlcmxpbmUge1xuICB3aWR0aDogODAlO1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgJGRlZmF1bHQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogNTAlO1xuICBib3R0b206IDA7XG4gIG1hcmdpbi1sZWZ0OiAtNDAlO1xufVxuXG4udW5kZXJsaW5lLXJpZ2h0e1xuICBAZXh0ZW5kIC51bmRlcmxpbmU7XG4gIHRyYW5zZm9ybTogcm90YXRlKFxuICAgICAgOTBkZWdcbiAgKTtcbiAgYm90dG9tOiB1bnNldDtcbiAgdG9wOiA1MCU7XG4gIGxlZnQ6IHVuc2V0O1xuICB3aWR0aDogNTAlO1xuICByaWdodDogLTI1JTtcbn1cblxuLnVuZGVybGluZS1sZWZ0IHtcbiAgQGV4dGVuZCAudW5kZXJsaW5lO1xuICB0cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XG4gIGxlZnQ6IDE1JTtcbiAgYm90dG9tOiB1bnNldDtcbiAgdG9wOiA1MCU7XG4gIHdpZHRoOiA1MCU7XG59XG5cbi50b3Atc2hhZG93IHtcbiAgbWF4LXdpZHRoOiA2MzBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAyNXB4O1xuICBoZWlnaHQ6IDA7XG4gIGJvcmRlci1ib3R0b206IDYwcHggc29saWQgI2ZmZjtcbiAgZmlsdGVyOiBibHVyKDEwcHgpO1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBvcGFjaXR5OiAxLjU7XG4gIHotaW5kZXg6IDk5O1xufVxuXG4uYm90dG9tLXNoYWRvdyB7XG4gIEBleHRlbmQgLnRvcC1zaGFkb3c7XG4gIGJvdHRvbTogMjVweDtcbiAgdG9wOiB1bnNldDtcbn1cblxuLmdvLXRvLWNyZWF0ZSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiA0MHB4O1xuICByaWdodDogNDBweDtcbiAgei1pbmRleDogMTAwMDtcbiAgYnV0dG9uIHtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBwYWRkaW5nOiAyNXB4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIG1pbi13aWR0aDogdW5zZXQ7XG4gICAgd2lkdGg6IDEwMHB4O1xuICAgIGltZyB7XG4gICAgICB3aWR0aDogNDBweDtcbiAgICB9XG4gIH1cbn1cblxuLnRvZG8tdGl0bGUge1xuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbn1cbiJdfQ== */"], data: { animation: [
             _utils_animations__WEBPACK_IMPORTED_MODULE_2__["popInAnimation"],
             _utils_animations__WEBPACK_IMPORTED_MODULE_2__["fadeInAnimation"],
         ] } });
@@ -1159,13 +1156,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_todo_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/todo.service */ "tadm");
 /* harmony import */ var _store_effects_todo_effect__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./store/effects/todo.effect */ "CKs+");
 /* harmony import */ var _store_reducers_todo_reducer__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./store/reducers/todo.reducer */ "22I9");
-/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/token.service */ "rj1t");
-/* harmony import */ var _create_todo_create_todo_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./create-todo/create-todo.component */ "VZyo");
-/* harmony import */ var ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ng2-tooltip-directive */ "lVl8");
-/* harmony import */ var _loading_loading_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./loading/loading.component */ "f/hT");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./header/header.component */ "fECr");
-
+/* harmony import */ var _create_todo_create_todo_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./create-todo/create-todo.component */ "VZyo");
+/* harmony import */ var ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ng2-tooltip-directive */ "lVl8");
+/* harmony import */ var _loading_loading_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./loading/loading.component */ "f/hT");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./header/header.component */ "fECr");
 
 
 
@@ -1210,10 +1205,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _services_public_guard_service__WEBPACK_IMPORTED_MODULE_15__["PublicGuardService"],
         _services_todo_list_service__WEBPACK_IMPORTED_MODULE_18__["TodoListService"],
         _services_todo_service__WEBPACK_IMPORTED_MODULE_22__["TodoService"],
-        _services_token_service__WEBPACK_IMPORTED_MODULE_25__["default"],
     ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_29__["BrowserAnimationsModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_28__["BrowserAnimationsModule"],
             _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_12__["JwtModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
@@ -1228,7 +1222,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                 todoList: _store_reducers_todo_list_reducer__WEBPACK_IMPORTED_MODULE_19__["todoListReducer"],
                 todo: _store_reducers_todo_reducer__WEBPACK_IMPORTED_MODULE_24__["todoReducer"],
             }),
-            ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_27__["TooltipModule"],
+            ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_26__["TooltipModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
         _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"],
@@ -1236,15 +1230,15 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _home_home_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"],
         _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_17__["TodoListComponent"],
         _todo_view_todo_view_component__WEBPACK_IMPORTED_MODULE_21__["TodoViewComponent"],
-        _create_todo_create_todo_component__WEBPACK_IMPORTED_MODULE_26__["CreateTodoComponent"],
-        _loading_loading_component__WEBPACK_IMPORTED_MODULE_28__["LoadingComponent"],
-        _header_header_component__WEBPACK_IMPORTED_MODULE_30__["HeaderComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_29__["BrowserAnimationsModule"],
+        _create_todo_create_todo_component__WEBPACK_IMPORTED_MODULE_25__["CreateTodoComponent"],
+        _loading_loading_component__WEBPACK_IMPORTED_MODULE_27__["LoadingComponent"],
+        _header_header_component__WEBPACK_IMPORTED_MODULE_29__["HeaderComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_28__["BrowserAnimationsModule"],
         _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_12__["JwtModule"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"], _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_16__["StoreDevtoolsModule"], _ngrx_effects__WEBPACK_IMPORTED_MODULE_7__["EffectsRootModule"], _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreRootModule"], ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_27__["TooltipModule"]] }); })();
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"], _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_16__["StoreDevtoolsModule"], _ngrx_effects__WEBPACK_IMPORTED_MODULE_7__["EffectsRootModule"], _ngrx_store__WEBPACK_IMPORTED_MODULE_8__["StoreRootModule"], ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_26__["TooltipModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -1255,13 +1249,13 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _home_home_component__WEBPACK_IMPORTED_MODULE_13__["HomeComponent"],
                     _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_17__["TodoListComponent"],
                     _todo_view_todo_view_component__WEBPACK_IMPORTED_MODULE_21__["TodoViewComponent"],
-                    _create_todo_create_todo_component__WEBPACK_IMPORTED_MODULE_26__["CreateTodoComponent"],
-                    _loading_loading_component__WEBPACK_IMPORTED_MODULE_28__["LoadingComponent"],
-                    _header_header_component__WEBPACK_IMPORTED_MODULE_30__["HeaderComponent"]
+                    _create_todo_create_todo_component__WEBPACK_IMPORTED_MODULE_25__["CreateTodoComponent"],
+                    _loading_loading_component__WEBPACK_IMPORTED_MODULE_27__["LoadingComponent"],
+                    _header_header_component__WEBPACK_IMPORTED_MODULE_29__["HeaderComponent"]
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_29__["BrowserAnimationsModule"],
+                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_28__["BrowserAnimationsModule"],
                     _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_12__["JwtModule"],
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
@@ -1276,7 +1270,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                         todoList: _store_reducers_todo_list_reducer__WEBPACK_IMPORTED_MODULE_19__["todoListReducer"],
                         todo: _store_reducers_todo_reducer__WEBPACK_IMPORTED_MODULE_24__["todoReducer"],
                     }),
-                    ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_27__["TooltipModule"],
+                    ng2_tooltip_directive__WEBPACK_IMPORTED_MODULE_26__["TooltipModule"],
                 ],
                 providers: [
                     { provide: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_12__["JWT_OPTIONS"], useValue: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_12__["JWT_OPTIONS"] },
@@ -1285,7 +1279,6 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _services_public_guard_service__WEBPACK_IMPORTED_MODULE_15__["PublicGuardService"],
                     _services_todo_list_service__WEBPACK_IMPORTED_MODULE_18__["TodoListService"],
                     _services_todo_service__WEBPACK_IMPORTED_MODULE_22__["TodoService"],
-                    _services_token_service__WEBPACK_IMPORTED_MODULE_25__["default"],
                 ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
             }]
@@ -1613,7 +1606,8 @@ const routerSlideInAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODU
                 top: 0,
                 left: 0,
                 width: '100%',
-                background: '#fff'
+                background: '#fff',
+                zIndex: 999
             })
         ]),
         Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["query"])(':enter', [
@@ -1853,25 +1847,6 @@ const todoListReducer = (state = initialState, action) => {
 
 /***/ }),
 
-/***/ "rj1t":
-/*!*******************************************!*\
-  !*** ./src/app/services/token.service.ts ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TokenService; });
-class TokenService {
-    constructor() {
-        this.token = localStorage.getItem('token');
-    }
-}
-
-
-/***/ }),
-
 /***/ "tadm":
 /*!******************************************!*\
   !*** ./src/app/services/todo.service.ts ***!
@@ -1883,54 +1858,51 @@ class TokenService {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoService", function() { return TodoService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _token_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./token.service */ "rj1t");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 
 
 
-
-class TodoService extends _token_service__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class TodoService {
     constructor(http) {
-        super();
         this.http = http;
     }
     loadTodo(_id) {
         return this.http.get(`https://serverless.wpadilla.vercel.app/api/todos/${_id}`, {
             headers: {
-                Authorization: this.token,
+                Authorization: localStorage.getItem('token'),
             }
         });
     }
     deleteTodo(_id) {
         return this.http.delete(`https://serverless.wpadilla.vercel.app/api/todos/${_id}`, {
             headers: {
-                Authorization: this.token,
+                Authorization: localStorage.getItem('token'),
             }
         });
     }
     updateTodo(todo) {
         return this.http.put(`https://serverless.wpadilla.vercel.app/api/todos/${todo.id}`, todo.data, {
             headers: {
-                Authorization: this.token,
+                Authorization: localStorage.getItem('token'),
             }
         });
     }
     addTodo(todo) {
         return this.http.post(`https://serverless.wpadilla.vercel.app/api/todos/`, todo, {
             headers: {
-                Authorization: this.token,
+                Authorization: localStorage.getItem('token'),
             }
         });
     }
 }
-TodoService.ɵfac = function TodoService_Factory(t) { return new (t || TodoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+TodoService.ɵfac = function TodoService_Factory(t) { return new (t || TodoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
 TodoService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: TodoService, factory: TodoService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TodoService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root'
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -2063,7 +2035,7 @@ class LoginComponent {
     }
     login() {
         this.startLoading = true;
-        const payload = { email: this.email.value, password: this.password.value };
+        const payload = { email: String(this.email.value).toLowerCase().replace(/[' ']/gi, ''), password: this.password.value };
         this.store.dispatch(new _store_actions_auth_actions__WEBPACK_IMPORTED_MODULE_2__["LoginAction"](payload));
         this.email.disable();
         this.password.disable();

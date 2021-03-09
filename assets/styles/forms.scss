@@ -3,7 +3,7 @@
 // form control styles
 .form-control {
   padding: 0 10px;
-  input {
+  input, textarea {
     border: 3px solid $primary;
     box-shadow: 0 0 2px $primary-dark;
     border-radius: 5px;
